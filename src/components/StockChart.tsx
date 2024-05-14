@@ -19,7 +19,7 @@ const StockChart: React.FC<StockChartProps> = ({ symbol }) => {
   const [metadata, setMetadata] = useState<string>('');
 
   const fetchData = async () => {
-    const url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=`;
+    const url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=KPVXNRUAIOSG8C2X`;
     try {
       const response = await axios.get(url);
       const timeSeriesData = response?.data['Time Series (5min)'];
