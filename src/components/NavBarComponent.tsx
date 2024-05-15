@@ -26,8 +26,11 @@ const NavBarComponent: FC = () =>  {
   const handleLogout = async () => {
     // Dispatch the logout action
     dispatch(logout());
-    const response = await axios.post('https://Viray.pythonanywhere.com/api/logout', {}, {
-      withCredentials: true // This enables sending cookies along with the request
+    const response = await axios.post('https://Viray.pythonanywhere.com/api/logout', 
+    {
+      params: {
+        jwt: Cookies.get('jwt'),
+      },
     });
     Cookies.remove('jwt');
     setLogoutSuccess(true);
